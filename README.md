@@ -4,7 +4,6 @@ JPVerticalSlideMenu
 Sliding Menu for iOS (Top and Bottom menus)
 
 <img src="JPVerticalSlideMenu.gif" width=320>
-<img src="https://raw.github.com/Juanpe/JPVerticalSlideMenu/master/JPVerticalSlideMenu.gif" width=320>
 
 With this library you can create 3 types of sliding menus: <br>
 1. Slide menu with <b>top</b> menu only. <br>
