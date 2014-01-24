@@ -207,9 +207,12 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
             if (panningView.frame.origin.y + translation.y < 0)
             {
                 if (self.slideState == JPVerticalSlideClosed) {
-                    panningState = JPVerticalSlidePanningStateUp;
+                    
+                    panningState    = JPVerticalSlidePanningStateUp;
+                    
                 }else{
-                    panningState = JPVerticalSlidePanningStateDown;
+                    
+                    panningState    = JPVerticalSlidePanningStateDown;
                 }
                 
                 if (self.slideState == JPVerticalSlideClosed)
@@ -221,9 +224,12 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
             else if(panningView.frame.origin.y + translation.y > 0)
             {
                 if (self.slideState == JPVerticalSlideClosed) {
-                    panningState = JPVerticalSlidePanningStateDown;
+                    
+                    panningState    = JPVerticalSlidePanningStateDown;
+                    
                 }else{
-                    panningState = JPVerticalSlidePanningStateUp;
+                    
+                    panningState    = JPVerticalSlidePanningStateUp;
                 }
                 
                 if (self.slideState == JPVerticalSlideClosed)
