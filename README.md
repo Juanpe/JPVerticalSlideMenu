@@ -11,13 +11,13 @@ With this library you can create 3 types of sliding menus: <br>
 3. Slide menu with <b>both top and bottom</b> menus. <br>
 
 ## Usage
-- Clone the repository:
+Clone the repository:
 
 ```bash
 $ git clone https://github.com/Juanpe/JPVerticalSlideMenu.git
 ```
 
-- Drag this files into your project:
+Drag this files into your project:
 - ```JPVerticalSlideVCProtocols.h```
 - ```JPVerticalSlideViewController.h```
 - ```JPVerticalSlideViewController.m```
