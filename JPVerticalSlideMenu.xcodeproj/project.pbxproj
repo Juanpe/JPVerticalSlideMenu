@@ -19,6 +19,9 @@
 		04E94C9F189280BC00184FAB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E94C87189280BC00184FAB /* UIKit.framework */; };
 		04E94CA7189280BC00184FAB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04E94CA5189280BC00184FAB /* InfoPlist.strings */; };
 		04E94CA9189280BC00184FAB /* JPVerticalSlideMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CA8189280BC00184FAB /* JPVerticalSlideMenuTests.m */; };
+		04E94CB51892821E00184FAB /* JPVerticalSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CB41892821E00184FAB /* JPVerticalSlideViewController.m */; };
+		04E94CBA189283BB00184FAB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CB8189283BB00184FAB /* HomeViewController.m */; };
+		04E94CBB189283BB00184FAB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E94CB9189283BB00184FAB /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		04E94CA4189280BC00184FAB /* JPVerticalSlideMenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JPVerticalSlideMenuTests-Info.plist"; sourceTree = "<group>"; };
 		04E94CA6189280BC00184FAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04E94CA8189280BC00184FAB /* JPVerticalSlideMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPVerticalSlideMenuTests.m; sourceTree = "<group>"; };
+		04E94CB31892821E00184FAB /* JPVerticalSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideViewController.h; sourceTree = "<group>"; };
+		04E94CB41892821E00184FAB /* JPVerticalSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVerticalSlideViewController.m; sourceTree = "<group>"; };
+		04E94CB61892824300184FAB /* JPVerticalSlideVCProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideVCProtocols.h; sourceTree = "<group>"; };
+		04E94CB7189283BB00184FAB /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		04E94CB8189283BB00184FAB /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		04E94CB9189283BB00184FAB /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +116,14 @@
 		04E94C89189280BC00184FAB /* JPVerticalSlideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				04E94CB21892821E00184FAB /* JPVerticalSlideVC */,
 				04E94C92189280BC00184FAB /* JPAppDelegate.h */,
 				04E94C93189280BC00184FAB /* JPAppDelegate.m */,
 				04E94C95189280BC00184FAB /* Images.xcassets */,
 				04E94C8A189280BC00184FAB /* Supporting Files */,
+				04E94CB7189283BB00184FAB /* HomeViewController.h */,
+				04E94CB8189283BB00184FAB /* HomeViewController.m */,
+				04E94CB9189283BB00184FAB /* HomeViewController.xib */,
 			);
 			path = JPVerticalSlideMenu;
 			sourceTree = "<group>";
@@ -143,6 +156,16 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		04E94CB21892821E00184FAB /* JPVerticalSlideVC */ = {
+			isa = PBXGroup;
+			children = (
+				04E94CB31892821E00184FAB /* JPVerticalSlideViewController.h */,
+				04E94CB41892821E00184FAB /* JPVerticalSlideViewController.m */,
+				04E94CB61892824300184FAB /* JPVerticalSlideVCProtocols.h */,
+			);
+			path = JPVerticalSlideVC;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -222,6 +245,7 @@
 			files = (
 				04E94C8E189280BC00184FAB /* InfoPlist.strings in Resources */,
 				04E94C96189280BC00184FAB /* Images.xcassets in Resources */,
+				04E94CBB189283BB00184FAB /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E94C94189280BC00184FAB /* JPAppDelegate.m in Sources */,
+				04E94CB51892821E00184FAB /* JPVerticalSlideViewController.m in Sources */,
 				04E94C90189280BC00184FAB /* main.m in Sources */,
+				04E94CBA189283BB00184FAB /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +470,7 @@
 				04E94CAE189280BC00184FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04E94CAF189280BC00184FAB /* Build configuration list for PBXNativeTarget "JPVerticalSlideMenuTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +479,7 @@
 				04E94CB1189280BC00184FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

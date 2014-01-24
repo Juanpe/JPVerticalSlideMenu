@@ -7,14 +7,21 @@
 //
 
 #import "JPAppDelegate.h"
+#import "HomeViewController.h"
 
 @implementation JPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+
+    HomeViewController* homeVC = [[HomeViewController alloc] initWithNibName:nil
+                                                                      bundle:nil];
+    
+    self.window.rootViewController  = homeVC;
+    
+    
+    self.window.backgroundColor     = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
