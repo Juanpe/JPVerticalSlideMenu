@@ -17,14 +17,17 @@ With this library you can create 3 types of sliding menus: <br>
 $ git clone https://github.com/Juanpe/JPVerticalSlideMenu.git
 ```
 
-- Drag the ```JPVerticalSlideVCProtocols.h```,```JPVerticalSlideViewController.h```,```JPVerticalSlideViewController.m``` files into your project.
+- Drag this files into your project:
+- ```JPVerticalSlideVCProtocols.h```
+- ```JPVerticalSlideViewController.h```
+- ```JPVerticalSlideViewController.m```
 
 ## Customize
 
 You can easily customize slide menu by overriding needed methods, such us: 
 <pre>
-- (CGFloat)topVCHeight;
-- (CGFloat)bottomVCHeight;
+- (CGFloat) topVCHeight;
+- (CGFloat) bottomVCHeight;
 - (CGFloat) panGestureWorkingAreaPercent;
 </pre>
 
