@@ -19,9 +19,9 @@
 		04E94C9F189280BC00184FAB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E94C87189280BC00184FAB /* UIKit.framework */; };
 		04E94CA7189280BC00184FAB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04E94CA5189280BC00184FAB /* InfoPlist.strings */; };
 		04E94CA9189280BC00184FAB /* JPVerticalSlideMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CA8189280BC00184FAB /* JPVerticalSlideMenuTests.m */; };
-		04E94CB51892821E00184FAB /* JPVerticalSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CB41892821E00184FAB /* JPVerticalSlideViewController.m */; };
 		04E94CBA189283BB00184FAB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CB8189283BB00184FAB /* HomeViewController.m */; };
 		04E94CBB189283BB00184FAB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E94CB9189283BB00184FAB /* HomeViewController.xib */; };
+		04E94CBF18928CAD00184FAB /* JPVerticalSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CBE18928CAD00184FAB /* JPVerticalSlideViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +51,12 @@
 		04E94CA4189280BC00184FAB /* JPVerticalSlideMenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JPVerticalSlideMenuTests-Info.plist"; sourceTree = "<group>"; };
 		04E94CA6189280BC00184FAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04E94CA8189280BC00184FAB /* JPVerticalSlideMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPVerticalSlideMenuTests.m; sourceTree = "<group>"; };
-		04E94CB31892821E00184FAB /* JPVerticalSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideViewController.h; sourceTree = "<group>"; };
-		04E94CB41892821E00184FAB /* JPVerticalSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVerticalSlideViewController.m; sourceTree = "<group>"; };
-		04E94CB61892824300184FAB /* JPVerticalSlideVCProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideVCProtocols.h; sourceTree = "<group>"; };
 		04E94CB7189283BB00184FAB /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		04E94CB8189283BB00184FAB /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		04E94CB9189283BB00184FAB /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		04E94CBC18928CAD00184FAB /* JPVerticalSlideVCProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideVCProtocols.h; sourceTree = "<group>"; };
+		04E94CBD18928CAD00184FAB /* JPVerticalSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideViewController.h; sourceTree = "<group>"; };
+		04E94CBE18928CAD00184FAB /* JPVerticalSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVerticalSlideViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,9 @@
 		04E94C89189280BC00184FAB /* JPVerticalSlideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				04E94CB21892821E00184FAB /* JPVerticalSlideVC */,
+				04E94CBC18928CAD00184FAB /* JPVerticalSlideVCProtocols.h */,
+				04E94CBD18928CAD00184FAB /* JPVerticalSlideViewController.h */,
+				04E94CBE18928CAD00184FAB /* JPVerticalSlideViewController.m */,
 				04E94C92189280BC00184FAB /* JPAppDelegate.h */,
 				04E94C93189280BC00184FAB /* JPAppDelegate.m */,
 				04E94C95189280BC00184FAB /* Images.xcassets */,
@@ -156,16 +158,6 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
-		};
-		04E94CB21892821E00184FAB /* JPVerticalSlideVC */ = {
-			isa = PBXGroup;
-			children = (
-				04E94CB31892821E00184FAB /* JPVerticalSlideViewController.h */,
-				04E94CB41892821E00184FAB /* JPVerticalSlideViewController.m */,
-				04E94CB61892824300184FAB /* JPVerticalSlideVCProtocols.h */,
-			);
-			path = JPVerticalSlideVC;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -265,8 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E94C94189280BC00184FAB /* JPAppDelegate.m in Sources */,
-				04E94CB51892821E00184FAB /* JPVerticalSlideViewController.m in Sources */,
 				04E94C90189280BC00184FAB /* main.m in Sources */,
+				04E94CBF18928CAD00184FAB /* JPVerticalSlideViewController.m in Sources */,
 				04E94CBA189283BB00184FAB /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
