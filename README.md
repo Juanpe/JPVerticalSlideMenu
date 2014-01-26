@@ -10,7 +10,15 @@ With this library you can create 3 types of sliding menus: <br>
 2. Slide menu with <b>bottom</b> menu only. <br>
 3. Slide menu with <b>both top and bottom</b> menus. <br>
 
-## Intallation
+## Installation
+
+### Cocoapods
+
+Edit Podfile and **add JPVerticalSlideMenu:**
+
+```bash
+pod 'JPVerticalSlideMenu'
+```
 
 ### Manual
 
@@ -21,14 +29,6 @@ $ git clone https://github.com/Juanpe/JPVerticalSlideMenu.git
 ```
 
 Drag and drop `JPVerticalSlideLib` folder into your project. Add `#import "JPVerticalSlideViewController.h"` to all view controllers that need to use it.
-
-### Cocoapods
-
-Edit Podfile and **add JPVerticalSlideMenu:**
-
-```bash
-pod 'JPVerticalSlideMenu'
-```
 
 ## Requirements
 
