@@ -10,17 +10,62 @@ With this library you can create 3 types of sliding menus: <br>
 2. Slide menu with <b>bottom</b> menu only. <br>
 3. Slide menu with <b>both top and bottom</b> menus. <br>
 
-## Usage
+## Intallation
+
+### Manual
+
 Clone the repository:
 
 ```bash
 $ git clone https://github.com/Juanpe/JPVerticalSlideMenu.git
 ```
 
-Drag this files into your project:
-- ```JPVerticalSlideVCProtocols.h```
-- ```JPVerticalSlideViewController.h```
-- ```JPVerticalSlideViewController.m```
+Drag and drop `JPVerticalSlideLib` folder into your project. Add `#import "JPVerticalSlideViewController.h"` to all view controllers that need to use it.
+
+### Cocoapods
+
+Edit Podfile and **add JPVerticalSlideMenu:**
+
+```bash
+pod 'JPVerticalSlideMenu'
+```
+
+## Requirements
+
+- iOS 7.0 or higher
+- ARC
+
+## Sample Usage
+
+
+### In your AppDelegate
+
+```objective-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    UIViewController* vcMain        = [[UIViewController alloc] init];
+    vcMain.view.backgroundColor     = [UIColor blueColor];
+    
+    UIViewController * vcTop        = [[UIViewController alloc] init];
+    vcTop.view.backgroundColor      = [UIColor redColor];
+    
+    UIViewController * vcBottom     = [[UIViewController alloc] init];
+    vcBottom.view.backgroundColor   = [UIColor greenColor];
+    
+    JPVerticalSlideViewController* verticalSlideMenu = [JPVerticalSlideViewController verticalSlideMenuWithMainVC:vcMain
+                                                                                                         andTopVC:vcTop
+                                                                                                      andBottomVC:vcBottom];
+    
+    self.window.rootViewController  = verticalSlideMenu;
+    
+    
+    self.window.backgroundColor     = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+```
 
 ## Customize
 

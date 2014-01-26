@@ -22,7 +22,6 @@
 		04E94CBA189283BB00184FAB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CB8189283BB00184FAB /* HomeViewController.m */; };
 		04E94CBB189283BB00184FAB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E94CB9189283BB00184FAB /* HomeViewController.xib */; };
 		04E94CC41892B03F00184FAB /* JPVerticalSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CC31892B03F00184FAB /* JPVerticalSlideViewController.m */; };
-		04E94CC718958A2C00184FAB /* JPPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E94CC618958A2C00184FAB /* JPPanGestureRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +57,6 @@
 		04E94CC11892B03F00184FAB /* JPVerticalSlideVCProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideVCProtocols.h; sourceTree = "<group>"; };
 		04E94CC21892B03F00184FAB /* JPVerticalSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVerticalSlideViewController.h; sourceTree = "<group>"; };
 		04E94CC31892B03F00184FAB /* JPVerticalSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVerticalSlideViewController.m; sourceTree = "<group>"; };
-		04E94CC518958A2C00184FAB /* JPPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPanGestureRecognizer.h; sourceTree = "<group>"; };
-		04E94CC618958A2C00184FAB /* JPPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPanGestureRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +163,6 @@
 				04E94CC11892B03F00184FAB /* JPVerticalSlideVCProtocols.h */,
 				04E94CC21892B03F00184FAB /* JPVerticalSlideViewController.h */,
 				04E94CC31892B03F00184FAB /* JPVerticalSlideViewController.m */,
-				04E94CC518958A2C00184FAB /* JPPanGestureRecognizer.h */,
-				04E94CC618958A2C00184FAB /* JPPanGestureRecognizer.m */,
 			);
 			path = JPVerticalSlideLib;
 			sourceTree = "<group>";
@@ -269,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E94CC718958A2C00184FAB /* JPPanGestureRecognizer.m in Sources */,
 				04E94C94189280BC00184FAB /* JPAppDelegate.m in Sources */,
 				04E94C90189280BC00184FAB /* main.m in Sources */,
 				04E94CC41892B03F00184FAB /* JPVerticalSlideViewController.m in Sources */,

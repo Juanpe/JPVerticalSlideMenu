@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, JPVerticalSlideState) {
 @property (weak, nonatomic) id<JPVerticalSlideVCDelegate> slideVCDelegate;
 
 @property (strong, nonatomic) UIViewController *topVC;
+@property (strong, nonatomic) UIViewController *mainVC;
 @property (strong, nonatomic) UIViewController *bottomVC;
 
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
@@ -36,6 +37,12 @@ typedef NS_ENUM(NSInteger, JPVerticalSlideState) {
 @property (nonatomic) BOOL bottomPanDisabled;
 
 @property (nonatomic) JPVerticalSlideState slideState;
+
+#pragma mark - Init Methods
+
++ (instancetype) verticalSlideMenuWithMainVC:(UIViewController *) mainViewController
+                                    andTopVC:(UIViewController *) topViewController
+                                 andBottomVC:(UIViewController *) bottomViewController;
 
 #pragma mark - Overridable Public Methods
 

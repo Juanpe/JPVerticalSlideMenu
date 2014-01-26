@@ -37,6 +37,24 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
 
 @implementation JPVerticalSlideViewController
 
+#pragma mark - Init -
+
++ (instancetype) verticalSlideMenuWithMainVC:(UIViewController *) mainViewController
+                                    andTopVC:(UIViewController *) topViewController
+                                 andBottomVC:(UIViewController *) bottomViewController{
+
+    JPVerticalSlideViewController* verticalSlideVC  = [[JPVerticalSlideViewController alloc] init];
+    
+    if (verticalSlideVC) {
+        
+        verticalSlideVC.mainVC                          = mainViewController;
+        verticalSlideVC.topVC                           = topViewController;
+        verticalSlideVC.bottomVC                        = bottomViewController;
+    }
+    
+    return verticalSlideVC;
+}
+
 #pragma mark - Lifecycle -
 
 - (void)viewDidLoad
@@ -99,7 +117,7 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
 
 - (void) _setup
 {
-
+    
     self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(handleTapGesture:)];
     self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
@@ -118,6 +136,12 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
         self.topVC.view.frame   = currentTopFrame;
         
         [self.view addSubview:self.topVC.view];
+    }
+    
+    if (self.mainVC) {
+        
+        self.mainVC.view.frame   = self.view.frame;
+        [self.view addSubview:self.mainVC.view];
     }
     
     if (self.bottomVC) {
@@ -167,22 +191,51 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
         {
             if (panningState == JPVerticalSlidePanningStateDown)
             {
-                [self closeBottomVC];
+                if (self.view.frame.size.height - (panningView.frame.origin.y + panningView.frame.size.height) < (2.0f * ([self bottomVCHeight] / 3.0f)))
+                {
+                    [self closeBottomVC];
+                }
+                else
+                {
+                    [self openBottomVC];
+                }
             }
             else if (panningState == JPVerticalSlidePanningStateUp)
             {
-                [self closeTopVC];
+                if (panningView.frame.origin.y < (2.0f * ([self topVCHeight] / 3.0f)))
+                {
+                    [self closeTopVC];
+                }
+                else
+                {
+                    [self openTopVC];
+                }
             }
         }
         else
         {
             if (panningState == JPVerticalSlidePanningStateUp)
             {
-                [self openBottomVC];
+                
+                if (self.view.frame.size.height - (panningView.frame.origin.y + panningView.frame.size.height) < ([self bottomVCHeight] / 3.0f))
+                {
+                    [self closeBottomVC];
+                }
+                else
+                {
+                    [self openBottomVC];
+                }
             }
             if (panningState == JPVerticalSlidePanningStateDown)
             {
-                [self openTopVC];
+                if (panningView.frame.origin.y < ([self topVCHeight] / 3.0f))
+                {
+                    [self closeTopVC];
+                }
+                else
+                {
+                    [self openTopVC];
+                }
             }
         }
         
@@ -264,7 +317,7 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
         else if (self.slideState == JPVerticalSlideBottomOpened)
         {
             if (self.view.frame.size.height - (panningView.frame.origin.y + panningView.frame.size.height + translation.y) < [self bottomVCHeight] &&
-                     panningView.frame.origin.y <= 0)
+                panningView.frame.origin.y <= 0)
             {
                 [panningView setCenter:CGPointMake([panningView center].x, [panningView center].y + translation.y)];
             }
@@ -305,10 +358,10 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
 - (void) openTopVCAnimated:(BOOL)animated
 {
     
-     if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topVCWillOpen)])
+    if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topVCWillOpen)])
         [self.slideVCDelegate topVCWillOpen];
     
-     
+    
     self.topVC.view.hidden      = NO;
     self.bottomVC.view.hidden   = YES;
     
@@ -317,20 +370,20 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
     
     [UIView animateWithDuration:(animated) ? kSlideOpenAnimationDuration : 0
                      animations:^{
-        self.view.frame = frame;
-        
-    } completion:^(BOOL finished) {
-        
-        [self _addGestures];
-        [self _enableGestures];
-        
-        self.slideState = JPVerticalSlideTopOpened;
-        
-        
-        if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topVCDidOpen)])
-            [self.slideVCDelegate topVCDidOpen];
-         
-    }];
+                         self.view.frame = frame;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         [self _addGestures];
+                         [self _enableGestures];
+                         
+                         self.slideState = JPVerticalSlideTopOpened;
+                         
+                         
+                         if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topVCDidOpen)])
+                             [self.slideVCDelegate topVCDidOpen];
+                         
+                     }];
 }
 
 - (void) openBottomVC
@@ -339,7 +392,7 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
 }
 
 - (void) openBottomVCAnimated:(BOOL)animated{
-
+    
     
     if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(bottomVCWillOpen)])
         [self.slideVCDelegate bottomVCWillOpen];
@@ -354,20 +407,20 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
     [UIView animateWithDuration:animated ? kSlideOpenAnimationDuration : 0
                      animations:^{
                          
-        self.view.frame = frame;
-        
-    } completion:^(BOOL finished) {
-        
-        [self _addGestures];
-        [self _enableGestures];
-        
-        self.slideState = JPVerticalSlideBottomOpened;
-        
-        
-        if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(bottomVCDidOpen)])
-            [self.slideVCDelegate bottomVCDidOpen];
-        
-    }];
+                         self.view.frame = frame;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         [self _addGestures];
+                         [self _enableGestures];
+                         
+                         self.slideState = JPVerticalSlideBottomOpened;
+                         
+                         
+                         if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(bottomVCDidOpen)])
+                             [self.slideVCDelegate bottomVCDidOpen];
+                         
+                     }];
 }
 
 - (void) closeTopVC
@@ -388,22 +441,22 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
     [UIView animateWithDuration:animated ? kSlideCloseAnimationDuration : 0
                      animations:^{
                          
-        self.view.frame = frame;
-        
-    } completion:^(BOOL finished) {
-        
-        [self.overlayView removeFromSuperview];
-        [self _disableGestures];
-        
-        self.slideState = JPVerticalSlideClosed;
-        
-        [self.view addGestureRecognizer:self.panGesture];
-        
-        
-        if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topVCDidClose)])
-            [self.slideVCDelegate topVCDidClose];
-         
-    }];
+                         self.view.frame = frame;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         [self.overlayView removeFromSuperview];
+                         [self _disableGestures];
+                         
+                         self.slideState = JPVerticalSlideClosed;
+                         
+                         [self.view addGestureRecognizer:self.panGesture];
+                         
+                         
+                         if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topVCDidClose)])
+                             [self.slideVCDelegate topVCDidClose];
+                         
+                     }];
 }
 
 - (void) closeBottomVC
@@ -424,22 +477,22 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
     [UIView animateWithDuration:animated ? kSlideCloseAnimationDuration : 0
                      animations:^{
                          
-        self.view.frame = frame;
+                         self.view.frame = frame;
                          
-    } completion:^(BOOL finished) {
-        
-        [self.overlayView removeFromSuperview];
-        [self _disableGestures];
-        
-        self.slideState = JPVerticalSlideClosed;
-        
-        [self.view addGestureRecognizer:self.panGesture];
-        
-        
-        if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(bottomVCDidClose)])
-            [self.slideVCDelegate bottomVCDidClose];
-         
-    }];
+                     } completion:^(BOOL finished) {
+                         
+                         [self.overlayView removeFromSuperview];
+                         [self _disableGestures];
+                         
+                         self.slideState = JPVerticalSlideClosed;
+                         
+                         [self.view addGestureRecognizer:self.panGesture];
+                         
+                         
+                         if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(bottomVCDidClose)])
+                             [self.slideVCDelegate bottomVCDidClose];
+                         
+                     }];
 }
 
 - (void) _closeSlide

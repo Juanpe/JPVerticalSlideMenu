@@ -10,8 +10,6 @@ Pod::Spec.new do |s|
   		:git => "https://github.com/Juanpe/JPVerticalSlideMenu.git", 
   		:tag => "1.0.1" 
   		}
-  s.source_files = 'JPVerticalSlideMenu/JPVerticalSlideLib/JPVerticalSlideViewController.{h,m}','JPVerticalSlideMenu/JPVerticalSlideLib/JPVerticalSlideVCProtocols.h'
+  s.source_files = 'JPVerticalSlideLib/JPVerticalSlideViewController.{h,m}','JPVerticalSlideLib/JPVerticalSlideVCProtocols.h'
   s.requires_arc = true
 end
-
-

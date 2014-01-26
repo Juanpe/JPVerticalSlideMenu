@@ -18,14 +18,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        UIViewController * vcTop        = [[UIViewController alloc] init];
-        vcTop.view.backgroundColor      = [UIColor redColor];
-        self.topVC                      = vcTop;
-        
-        UIViewController * vcBottom     = [[UIViewController alloc] init];
-        vcBottom.view.backgroundColor   = [UIColor greenColor];
-        self.bottomVC                   = vcBottom;
                 
     }
     return self;
