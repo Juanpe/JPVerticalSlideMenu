@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "JPVerticalSlideVCProtocols.h"
+#import "JPBottomSegue.h"
+#import "JPTopSegue.h"
+#import "JPVerticalSlideSegue.h"
 
 typedef NS_ENUM(NSInteger, JPVerticalSlide) {
     JPVerticalSlideTop,

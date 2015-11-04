@@ -8,32 +8,11 @@
 
 #import "JPAppDelegate.h"
 #import "JPVerticalSlideViewController.h"
-#import "HomeViewController.h"
 
 @implementation JPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    HomeViewController* homeVC = [[HomeViewController alloc] initWithNibName:nil
-                                                                      bundle:nil];
-    
-    UIViewController * vcTop        = [[UIViewController alloc] init];
-    vcTop.view.backgroundColor      = [UIColor redColor];
-    
-    UIViewController * vcBottom     = [[UIViewController alloc] init];
-    vcBottom.view.backgroundColor   = [UIColor greenColor];
-    
-    JPVerticalSlideViewController* verticalSlideMenu = [JPVerticalSlideViewController verticalSlideMenuWithMainVC:homeVC
-                                                                                                         andTopVC:vcTop
-                                                                                                      andBottomVC:vcBottom];
-    
-    self.window.rootViewController  = verticalSlideMenu;
-    
-    
-    self.window.backgroundColor     = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
