@@ -61,6 +61,19 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
 {
     [super viewDidLoad];
     
+    NSArray *segueTemplates = [self valueForKey:@"storyboardSegueTemplates"] ;
+
+    [segueTemplates enumerateObjectsUsingBlock:^(id  _Nonnull segueTemplate, NSUInteger index, BOOL * _Nonnull stop) {
+
+        NSString *className = [segueTemplate valueForKey:@"_segueClassName"];
+        NSString *identifier = [segueTemplate valueForKey:@"_identifier"];
+        Class segueClass = NSClassFromString(className);
+        
+        if ([segueClass isSubclassOfClass:[JPVerticalSlideSegue class]]) {
+            [self performSegueWithIdentifier:identifier sender:self];
+        }
+    }];
+    
     [self _setup];
 }
 
@@ -515,6 +528,5 @@ typedef NS_ENUM(NSInteger, JPVerticalSlidePanningState) {
     
     return fabs(translation.y) > fabs(translation.x);
 }
-
 
 @end
