@@ -12,7 +12,7 @@ With this library you can create 3 types of sliding menus: <br>
 
 ## Installation
 
-### Cocoapods
+### CocoaPods
 
 Edit Podfile and **add JPVerticalSlideMenu:**
 
